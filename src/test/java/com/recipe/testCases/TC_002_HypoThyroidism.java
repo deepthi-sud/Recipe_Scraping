@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.NotFoundException;
 import com.recipe.testBase.BaseClass;
 
 import com.recipe.utilities.ExcelUtility;
@@ -131,16 +130,16 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 										}
 
-									outer1:
-										for (String betterIngrediants : toAddList) 
-										{
-											if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
-											{
-												goodRecipes_count++;
-												System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
-												break outer1;
-											}
-										}
+//									outer1:
+//										for (String betterIngrediants : toAddList) 
+//										{
+//											if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
+//											{
+//												goodRecipes_count++;
+//												System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
+//												break outer1;
+//											}
+//										}
 									//            	
 									//	            	outer2:
 									//	            		 for(int k=0;k<allergyList.size();k++)
