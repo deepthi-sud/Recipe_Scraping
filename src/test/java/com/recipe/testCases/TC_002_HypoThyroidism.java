@@ -59,6 +59,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 		timer_start = Instant.now();
 		int eliminated_recipe_count =  0;
 		int total_recipes = 0;
+		int i=0;
 
 		//Click on Recipes A to Z
 		WebElement recipes=driver.findElement(By.xpath("//div[@id = 'toplinks']/a[5]"));
@@ -104,6 +105,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 							if(recipeLinksSize>0) {
 								for(int j=0;j<recipeLinksSize; j++ )
 								{         
+									
 									System.out.println("Loop index j: " + j);
 									JavascriptExecutor js = (JavascriptExecutor) driver;
 									js.executeScript("window.scrollBy(0,350)", "");
@@ -158,6 +160,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 									if(flag==0)
 									{
+										i++;
 										System.out.println("********************************************************");
 										System.out.println(j+" : Recipe name: " +Recipe_name);
 										System.out.println(recipe_url);
@@ -167,15 +170,16 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 										System.out.println(ingredients);
 										System.out.println("------------------------");
+										String PrepTime="",CookTime="",nutrient="";
 										try {
 											WebElement prep_time = driver.findElement(By.xpath("//time[@itemprop = 'prepTime']"));
-											String PrepTime=prep_time.getText().toString();
-											xlutil.setCellData("HYPOTHYROIDISM", j, 4, PrepTime);
+											PrepTime=prep_time.getText().toString();
+										//	xlutil.setCellData("HYPOTHYROIDISM", i, 4, PrepTime);
 											System.out.println("PreparationTime: "+PrepTime);
 
 											WebElement cook_time=driver.findElement(By.xpath("//time[@itemprop = 'cookTime']"));
-											String CookTime = cook_time.getText().toString();
-											xlutil.setCellData("HYPOTHYROIDISM", j, 5, CookTime); 
+											CookTime = cook_time.getText().toString();
+										//	xlutil.setCellData("HYPOTHYROIDISM", i, 5, CookTime); 
 											System.out.println("CookingTime: "+CookTime);
 
 										}	catch(NoSuchElementException e)
@@ -186,13 +190,13 @@ public class TC_002_HypoThyroidism extends BaseClass {
 										WebElement method = driver.findElement(By.xpath("//div[@id='recipe_small_steps']"));
 										System.out.println("----------Recipe Method: ----------------------------------------------------------------------");
 										String prep_method =method.getText().toString();
-										//xlutil.setCellData("Sheet2", j, 7, prep_method);
-										System.out.println(prep_method);
+									    System.out.println(prep_method);
 
 										try {
+											
 											WebElement nutrients = driver.findElement(By.xpath("//table[@id='rcpnutrients']"));
-											xlutil.setCellData("HYPOTHYROIDISM", j, 10, nutrient);
-											String nutrient = nutrients.getText();
+											nutrient = nutrients.getText();
+											//xlutil.setCellData("HYPOTHYROIDISM", i, 10, nutrient);
 											System.out.println("----------nutrients:------------------------------------ " + nutrient);
 										}catch(NoSuchElementException e)
 										{
@@ -212,17 +216,17 @@ public class TC_002_HypoThyroidism extends BaseClass {
 										System.out.println("TargettedMorbidity: "+targetmorbidity);
 
 
-										xlutil.setCellData("HYPOTHYROIDISM", j, 0, recipeID);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 1, Recipe_name);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 2, recipeCategory);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 3, foodCategory);
-										//xlutil.setCellData("HYPOTHYROIDISM", j, 4, PrepTime);
-										//xlutil.setCellData("HYPOTHYROIDISM", j, 5, CookTime);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 6, ingredients);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 7, prep_method);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 8, targetmorbidity);
-										xlutil.setCellData("HYPOTHYROIDISM", j, 9, recipe_url);
-									//	xlutil.setCellData("HYPOTHYROIDISM", j, 10, nutrient);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 0, recipeID);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 1, Recipe_name);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 2, recipeCategory);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 3, foodCategory);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 4, PrepTime);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 5, CookTime);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 6, ingredients);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 7, prep_method);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 8, targetmorbidity);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 9, recipe_url);
+										xlutil.setCellData("HYPOTHYROIDISM", i, 10, nutrient);
 									}
 									driver.navigate().back();
 									recipeLinks=driver.findElements(By.xpath("//div[@class='rcc_recipecard']//div[3]/span/a"));
