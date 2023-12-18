@@ -51,6 +51,7 @@
     <artifactId>poi</artifactId>
     <version>5.2.5</version>
 </dependency>
+
   <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
@@ -84,10 +85,15 @@
     <artifactId>jsoup</artifactId>
     <version>1.17.1</version>
 </dependency>
-  
-  
-  
-  
-  
+
+
+
+
+
+  	<dependency>
+  		<groupId>SampleWebScraping</groupId>
+  		<artifactId>SampleWebScraping</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>

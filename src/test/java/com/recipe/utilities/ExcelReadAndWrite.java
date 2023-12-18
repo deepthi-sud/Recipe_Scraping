@@ -1,15 +1,20 @@
-package com.recipe.utilities;
+	package com.recipe.utilities;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.google.common.collect.Table.Cell;
 
 public class ExcelReadAndWrite {
 	
@@ -20,8 +25,10 @@ public class ExcelReadAndWrite {
 	public XSSFRow row;
 	public XSSFCell cell;
 	public CellStyle style;
-	String path = null;
-	
+	String path = "./TestData/Team7_Scraping_Spatulas.xlsx";
+	static String path1  = "C:\\Users\\Deepthi\\git\\Team7_Scraping_Spatulas\\TestData\\Ingredientsandcomorbidities.xlsx";
+    int colNum=0;
+    
 	public ExcelReadAndWrite(String path)
 	{
 		this.path=path;
@@ -73,7 +80,7 @@ public class ExcelReadAndWrite {
 	
 	public void setCellData (String SheetName, int rownum, int colcount, String data) throws IOException
 	{
-	
+	    
 		File xlfile = new File(path);
 		if(!xlfile.exists())// If file not exists then create new file
 		{
@@ -102,6 +109,36 @@ public class ExcelReadAndWrite {
 		workbook.close();
 		fi.close();
 		fo.close();
+		
+	}
+
+	public static  ArrayList<String> readEliminatedList(int colNum) throws IOException, InterruptedException
+	{
+	
+		
+		ArrayList<String> eliminateList = new ArrayList<>();
+		FileInputStream inputStream = new FileInputStream(new File(path1));
+		XSSFWorkbook workbook =new XSSFWorkbook(inputStream);
+		XSSFSheet sheet = workbook.getSheetAt(0);
+        System.out.println("ExcelReader");
+		int rowIndex = 0;
+		for (Row row : sheet) {
+		if (rowIndex >= 2)
+		{
+		org.apache.poi.ss.usermodel.Cell cell = row.getCell(colNum);
+		if (cell != null && cell.getCellType() == CellType.STRING) {
+		eliminateList.add(cell.getStringCellValue());
+		}
+		}
+		rowIndex++;
+		}
+		System.out.println(eliminateList);
+
+		workbook.close();
+		inputStream.close();
+
+		return eliminateList;
+		
 		
 	}
 
