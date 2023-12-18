@@ -39,8 +39,8 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 	{
 		ExcelUtility  xlutil = new ExcelUtility(".\\TestData\\Team7_Scraping_Spatulas_ScrapedRecipes.xlsx");
-		ArrayList<String> EliminateList = excel.readDataFromSheet(0, 6);
-		//		ArrayList<String> toAddList = excel.readDataFromSheet(0, 7);
+		ArrayList<String> EliminateList = excel.readDataFromSheet(0, 2);
+		ArrayList<String> toAddList = excel.readDataFromSheet(0, 3);
 		//	ArrayList<String> allergyList = excel.readDataFromSheet(1, 0);
 
 
@@ -105,7 +105,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 							if(recipeLinksSize>0) {
 								for(int j=0;j<recipeLinksSize; j++ )
 								{         
-									
+
 									System.out.println("Loop index j: " + j);
 									JavascriptExecutor js = (JavascriptExecutor) driver;
 									js.executeScript("window.scrollBy(0,350)", "");
@@ -131,16 +131,16 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 										}
 
-									//	            outer1:
-									//	            	for (String betterIngrediants : toAddList) 
-									//	            	{
-									//	    				if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
-									//	    				{
-									//	    					goodRecipes_count++;
-									//	    					System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
-									//	    					break outer1;
-									//	    				}
-									//	    			}
+									outer1:
+										for (String betterIngrediants : toAddList) 
+										{
+											if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
+											{
+												goodRecipes_count++;
+												System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
+												break outer1;
+											}
+										}
 									//            	
 									//	            	outer2:
 									//	            		 for(int k=0;k<allergyList.size();k++)
@@ -174,12 +174,12 @@ public class TC_002_HypoThyroidism extends BaseClass {
 										try {
 											WebElement prep_time = driver.findElement(By.xpath("//time[@itemprop = 'prepTime']"));
 											PrepTime=prep_time.getText().toString();
-										//	xlutil.setCellData("HYPOTHYROIDISM", i, 4, PrepTime);
+											//	xlutil.setCellData("HYPOTHYROIDISM", i, 4, PrepTime);
 											System.out.println("PreparationTime: "+PrepTime);
 
 											WebElement cook_time=driver.findElement(By.xpath("//time[@itemprop = 'cookTime']"));
 											CookTime = cook_time.getText().toString();
-										//	xlutil.setCellData("HYPOTHYROIDISM", i, 5, CookTime); 
+											//	xlutil.setCellData("HYPOTHYROIDISM", i, 5, CookTime); 
 											System.out.println("CookingTime: "+CookTime);
 
 										}	catch(NoSuchElementException e)
@@ -190,10 +190,10 @@ public class TC_002_HypoThyroidism extends BaseClass {
 										WebElement method = driver.findElement(By.xpath("//div[@id='recipe_small_steps']"));
 										System.out.println("----------Recipe Method: ----------------------------------------------------------------------");
 										String prep_method =method.getText().toString();
-									    System.out.println(prep_method);
+										System.out.println(prep_method);
 
 										try {
-											
+
 											WebElement nutrients = driver.findElement(By.xpath("//table[@id='rcpnutrients']"));
 											nutrient = nutrients.getText();
 											//xlutil.setCellData("HYPOTHYROIDISM", i, 10, nutrient);
