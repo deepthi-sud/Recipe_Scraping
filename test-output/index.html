@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\Deepthi\git\Team7_Scraping_Spatulas\master.xml</span>
+                    <span>C:\Users\Deepthi\git\repository3\Team7_Scraping_Spatulas\master.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -130,28 +130,15 @@
                   <a name="hypoThyrodism">
                   </a> <!-- hypoThyrodism -->
                   <span class="method-name">hypoThyrodism</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
-  (failed to check if window was closed: disconnected: not connected to DevTools)
-  (Session info: chrome-headless-shell=120.0.6099.72)
-Build info: version: &apos;4.16.1&apos;, revision: &apos;9b4c83354e&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eeab673b47b6d05c36308f905bf133b8, getCurrentUrl {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.72, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\Deepthi\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61781/devtoo..., se:cdpVersion: 120.0.6099.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: eeab673b47b6d05c36308f905bf133b8
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-	at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:317)
-	at com.recipe.testCases.TC_002_HypoThyroidism.hypoThyrodism(TC_002_HypoThyroidism.java:116)
+                  <div class="stack-trace">java.io.FileNotFoundException: .\TestData\Team7_Scraping_Spatulas_ScrapedRecipes.xlsx (The process cannot access the file because it is being used by another process)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:289)
+	at java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:230)
+	at java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:118)
+	at com.recipe.utilities.ExcelUtility.setCellData(ExcelUtility.java:105)
+	at com.recipe.testCases.TC_002_HypoThyroidism.hypoThyrodism(TC_002_HypoThyroidism.java:46)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 28 stack frames
+... Removed 25 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -160,7 +147,7 @@ Session ID: eeab673b47b6d05c36308f905bf133b8
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Deepthi\git\Team7_Scraping_Spatulas\master.xml</span>
+            <span class="header-content">C:\Users\Deepthi\git\repository3\Team7_Scraping_Spatulas\master.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -214,12 +201,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'hypoThyrodism')
 data.setCell(0, 2, 'com.recipe.testCases.TC_002_HypoThyroidism')
-data.setCell(0, 3, 1726275);
+data.setCell(0, 3, 1147);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 28 minutes</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -254,11 +241,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">hypoThyrodism</span>
-                <span class="method-start">10025 ms</span>
+                <span class="method-start">6829 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">2203129 ms</span>
+                <span class="method-start">7987 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

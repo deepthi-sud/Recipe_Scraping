@@ -40,7 +40,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 		ExcelUtility  xlutil = new ExcelUtility(".\\TestData\\Team7_Scraping_Spatulas_ScrapedRecipes.xlsx");
 		ArrayList<String> EliminateList = excel.readDataFromSheet(0, 2);
 		ArrayList<String> toAddList = excel.readDataFromSheet(0, 3);
-		//	ArrayList<String> allergyList = excel.readDataFromSheet(1, 0);
+		ArrayList<String> allergyList = excel.readDataFromSheet(1, 0);
 
 
 		xlutil.setCellData("HYPOTHYROIDISM", 0, 0, "RecipeID");
@@ -54,6 +54,8 @@ public class TC_002_HypoThyroidism extends BaseClass {
 		xlutil.setCellData("HYPOTHYROIDISM", 0, 8, "Targetted morbidity");
 		xlutil.setCellData("HYPOTHYROIDISM", 0, 9, "Recipe URL");				
 		xlutil.setCellData("HYPOTHYROIDISM", 0, 10, "Nutrients");
+		xlutil.setCellData("HYPOTHYROIDISM", 0, 11, "Allergy Info");
+		xlutil.setCellData("TOADD_RECIPES", 0, 0, "Recipe_Name");
 
 		timer_start = Instant.now();
 		int eliminated_recipe_count =  0;
@@ -117,49 +119,52 @@ public class TC_002_HypoThyroidism extends BaseClass {
 
 									flag = 0;
 									outer:
-										for(int k=0;k<EliminateList.size();k++)
+									for(int k=0;k<EliminateList.size();k++)
+									{
+										String s1 =EliminateList.get(k).toLowerCase();
+										String s2 = ingredients.toLowerCase();
+										if(s2.contains(s1))
 										{
-											String s1 =EliminateList.get(k).toLowerCase();
-											String s2 = ingredients.toLowerCase();
-											if(s2.contains(s1))
-											{
-												eliminated_recipe_count++;
-												flag = 1;
-												break outer;
-											}
-
+											eliminated_recipe_count++;
+											flag = 1;
+											break outer;
 										}
 
-//									outer1:
-//										for (String betterIngrediants : toAddList) 
-//										{
-//											if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
-//											{
-//												goodRecipes_count++;
-//												System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
-//												break outer1;
-//											}
-//										}
-									//            	
-									//	            	outer2:
-									//	            		 for(int k=0;k<allergyList.size();k++)
-									//	                     {
-									//	                   	  String s1 = allergyList.get(k).toLowerCase();
-									//	                   	  String s2 = ingredients.toLowerCase();
-									//	                   	  if(s2.contains(s1))
-									//	                   	  {
-									//	                
-									//	                   		  allergyFlag = 1;
-									//	                   		  allergy_name = s1;
-									//	                   		  System.out.println("ALLERGY TYPE: "+allergy_name+"            RECIPE NAME:       " + Recipe_name);
-									//	                   		  break outer2;
-									//	                         }
-									//	                     }
-									//	            	
+									}
+
 
 									if(flag==0)
 									{
-										i++;
+										i++;				
+
+
+											outer1:
+												for (String betterIngrediants : toAddList) 
+												{
+													if (ingredients.toLowerCase().contains(betterIngrediants.trim())) 
+													{
+														goodRecipes_count++;
+														System.out.println("GOOD TO HAVE RECIPE: " + Recipe_name);
+														xlutil.setCellData("TOADD_RECIPES", i, 0,Recipe_name);
+														break outer1;
+													}
+												}
+
+										outer2:
+											for(int k=0;k<allergyList.size();k++)
+											{
+												String s1 = allergyList.get(k).toLowerCase();
+												String s2 = ingredients.toLowerCase();
+												if(s2.contains(s1))
+												{
+
+													allergyFlag = 1;
+													allergy_name = s1;
+													System.out.println("ALLERGY TYPE: "+allergy_name+"            RECIPE NAME:       " + Recipe_name);
+													xlutil.setCellData("HYPOTHROIDISM", i, 11, allergy_name);
+													break outer2;
+												}
+											}
 										System.out.println("********************************************************");
 										System.out.println(j+" : Recipe name: " +Recipe_name);
 										System.out.println(recipe_url);
@@ -229,8 +234,7 @@ public class TC_002_HypoThyroidism extends BaseClass {
 									}
 									driver.navigate().back();
 									recipeLinks=driver.findElements(By.xpath("//div[@class='rcc_recipecard']//div[3]/span/a"));
-									//end of recipes loop
-								}
+								}//end of recipes loop
 							}//end of recipeSize if loop
 					}catch(IndexOutOfBoundsException e) {
 						System.out.println("Index Out of Bound Exception");

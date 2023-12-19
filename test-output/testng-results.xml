@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-18T13:24:34 EST" name="Suite" finished-at="2023-12-18T14:01:18 EST" duration-ms="2203723">
+  <suite started-at="2023-12-18T18:49:28 EST" name="Suite" finished-at="2023-12-18T18:49:36 EST" duration-ms="8102">
     <groups>
     </groups>
-    <test started-at="2023-12-18T13:24:34 EST" name="Test" finished-at="2023-12-18T14:01:18 EST" duration-ms="2203723">
+    <test started-at="2023-12-18T18:49:28 EST" name="Test" finished-at="2023-12-18T18:49:36 EST" duration-ms="8102">
       <class name="com.recipe.testCases.TC_002_HypoThyroidism">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@1283bb96]" started-at="2023-12-18T13:24:34 EST" name="setup" finished-at="2023-12-18T13:24:44 EST" duration-ms="10019" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@5b239d7d]" started-at="2023-12-18T18:49:28 EST" name="setup" finished-at="2023-12-18T18:49:35 EST" duration-ms="6820" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,43 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="hypoThyrodism()[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@1283bb96]" started-at="2023-12-18T13:24:44 EST" name="hypoThyrodism" finished-at="2023-12-18T13:53:31 EST" duration-ms="1726275" status="FAIL">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method signature="hypoThyrodism()[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@5b239d7d]" started-at="2023-12-18T18:49:35 EST" name="hypoThyrodism" finished-at="2023-12-18T18:49:36 EST" duration-ms="1147" status="FAIL">
+          <exception class="java.io.FileNotFoundException">
             <message>
-              <![CDATA[disconnected: not connected to DevTools
-  (failed to check if window was closed: disconnected: not connected to DevTools)
-  (Session info: chrome-headless-shell=120.0.6099.72)
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eeab673b47b6d05c36308f905bf133b8, getCurrentUrl {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.72, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\Deepthi\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61781/devtoo..., se:cdpVersion: 120.0.6099.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: eeab673b47b6d05c36308f905bf133b8]]>
+              <![CDATA[.\TestData\Team7_Scraping_Spatulas_ScrapedRecipes.xlsx (The process cannot access the file because it is being used by another process)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
-  (failed to check if window was closed: disconnected: not connected to DevTools)
-  (Session info: chrome-headless-shell=120.0.6099.72)
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eeab673b47b6d05c36308f905bf133b8, getCurrentUrl {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.72, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\Deepthi\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61781/devtoo..., se:cdpVersion: 120.0.6099.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: eeab673b47b6d05c36308f905bf133b8
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebDriver.getCurrentUrl(RemoteWebDriver.java:317)
-at com.recipe.testCases.TC_002_HypoThyroidism.hypoThyrodism(TC_002_HypoThyroidism.java:116)
+              <![CDATA[java.io.FileNotFoundException: .\TestData\Team7_Scraping_Spatulas_ScrapedRecipes.xlsx (The process cannot access the file because it is being used by another process)
+at java.base/java.io.FileOutputStream.open0(Native Method)
+at java.base/java.io.FileOutputStream.open(FileOutputStream.java:289)
+at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:230)
+at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:118)
+at com.recipe.utilities.ExcelUtility.setCellData(ExcelUtility.java:105)
+at com.recipe.testCases.TC_002_HypoThyroidism.hypoThyrodism(TC_002_HypoThyroidism.java:46)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -83,11 +59,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.io.FileNotFoundException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- hypoThyrodism -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@1283bb96]" started-at="2023-12-18T14:01:18 EST" name="tearDown" finished-at="2023-12-18T14:01:18 EST" duration-ms="576" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.recipe.testCases.TC_002_HypoThyroidism@5b239d7d]" started-at="2023-12-18T18:49:36 EST" name="tearDown" finished-at="2023-12-18T18:49:36 EST" duration-ms="94" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

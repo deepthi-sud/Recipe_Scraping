@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.recipe.testBase.Comorbidity"/>
+      <class name="com.recipe.testCases.TC_003_Diabetes"/>
+      <class name="com.recipe.testCases.TC_004_PCOS"/>
+      <class name="com.recipe.testBase.FoodCategory"/>
+      <class name="com.recipe.testCases.TC_002_HypoThyroidism"/>
+      <class name="com.recipe.testCases.TC_001_HyperTension"/>
+      <class name="com.recipe.testBase.BaseClass"/>
+      <class name="com.recipe.testBase.RecipeCategory"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
